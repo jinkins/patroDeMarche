@@ -18,6 +18,7 @@ import { ChantService } from './chant/chant.service';
 import { EventComponent } from './event/event.component';
 import { EventService } from './event/event.service';
 import { FutureAndSortedPipe } from './event/future-and-sorted.pipe';
+import { EventDetailComponent } from './event/event-detail/event-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FutureAndSortedPipe } from './event/future-and-sorted.pipe';
     ChantListComponent,
     ChantStartComponent,
     EventComponent,
-    FutureAndSortedPipe
+    FutureAndSortedPipe,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,
