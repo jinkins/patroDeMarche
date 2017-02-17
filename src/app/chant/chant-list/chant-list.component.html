@@ -1,0 +1,5 @@
+<div class="list-group">
+  <a class="list-group-item" *ngFor="let chant of chants; let i = index" (click)="onSelect(chant)">
+    {{chant.titre}}
+  </a>
+</div>

@@ -1,0 +1,45 @@
+<div class="container" *ngIf="events">
+
+    <!-- Page header -->
+    <div class="page-header">
+        <h2>Events</h2>
+    </div>
+    <!-- /Page header -->
+
+    <!-- Timeline -->
+    <div class="timeline">
+        <!-- Line component -->
+        <div class="line text-muted"></div>
+        <div *ngFor="let event of events | futureAndSorted ">
+            <!-- Separator -->
+            <div class="separator text-muted">
+                <time>{{ event.quand | date: 'dd/MM/yyyy' }}</time>
+            </div>
+            <!-- /Separator -->
+            <article class="panel panel-success">
+                <!-- Icon -->
+                <div class="panel-heading icon">
+                    <i class="glyphicon glyphicon-plus"></i>
+                </div>
+                <!-- /Icon -->
+                <!-- Heading -->
+                <div class="panel-heading">
+                    <h2 class="panel-title">{{ event.titre }}</h2>
+                </div>
+                <!-- /Heading -->
+                <!-- Body -->
+                <div class="panel-body">
+                    {{ event.description }}
+                </div>
+                <!-- /Body -->
+                <!-- Footer -->
+                <div class="panel-footer">
+                    <span *ngFor="let qui of event.audience" class="badge">{{ qui }}</span>
+                </div>
+                <!-- /Footer -->
+            </article>
+        </div>
+    </div>
+    <!-- /Timeline -->
+
+</div>

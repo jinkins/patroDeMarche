@@ -1,0 +1,6 @@
+<div *ngIf="chantSelected">
+  <iframe [src]="photoUrl()" frameborder="0" width="100%" height="600px"></iframe> 
+</div>
+<div *ngIf="!chantSelected">
+  Sélectionnez un chant dans le menu de gauche.
+</div>

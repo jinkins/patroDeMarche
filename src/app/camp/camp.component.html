@@ -1,0 +1,110 @@
+<h2>Le Camp</h2>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <img src="/content/img/camp/Description.jpg" class="thumbnail" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-7">
+        <h3>Présentation générale</h3>
+        {{ camp.description }}
+    </div>
+    <div class="col-md-5">
+        <h3>Informations</h3>
+        <p>
+            <b>Lieu du camp : </b>
+            {{ camp.lieu }}
+        </p>
+        <p>
+            <b>Date du camps : </b>
+            {{ camp.quand | date: 'dd/MM/yyyy'}}
+        </p>
+        <p>
+
+        </p>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <h3>Les informations utiles</h3>
+        <div class="btn-group btn-group-justified"> 
+            <a href="~/Content/Documents/FicheSante.pdf" class="btn btn-danger">Fiche de santé</a>
+            <a href="~/Content/Documents/LettreCamp.pdf" class="btn btn-warning">Lettre du camps</a>
+            <a href="~/Content/Documents/ListeMateriel.pdf" class="btn btn-success">Liste du matériel</a>
+        </div>
+    </div>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Les consignes particulières</h2>
+    </div>
+    <div class="col-xs-12 col-md-3">
+        <div class="thumbnail">
+            <img src="/content/img/camp/Benjamine.jpg" alt="Benjamines">
+            <div class="caption">
+                <h3>Benjamines</h3>
+                <p>{{camp.infos.benjamines}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-3">
+        <div class="thumbnail">
+            <img src="/content/img/camp/Etincelle.jpg" alt="Etincelles">
+            <div class="caption">
+                <h3>Etincelles</h3>
+                <p>{{camp.infos.petitesEtincelles}}</p>
+                <hr/>
+                <p>{{camp.infos.grandesEtincelles}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-3">
+        <div class="thumbnail">
+            <img src="/content/img/camp/Alpine.jpg" alt="Alpines">
+            <div class="caption">
+                <h3>Alpines</h3>
+                <p>{{camp.infos.alpines}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-3">
+        <div class="thumbnail">
+            <img src="/content/img/camp/Grande.jpg" alt="Grandes">
+            <div class="caption">
+                <h3>Grandes</h3>
+                <p>{{camp.infos.grandes}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <h3>Informations financières</h3>
+        <ul>
+            <li><i>Numéro de Compte : </i> {{ camp.iban }} </li>
+            <li><i>En Communication : </i> {{ camp.communication }}</li> 
+        </ul>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Une personne</th>
+                    <th>La soeur</th>
+                    <th>Le demi-camp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Prix</th>
+                    <td>{{ camp.prix.one }}€</td>
+                    <td>{{ camp.prix.soeur }}€</td>
+                    <td>{{ camp.prix.demi }}€</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

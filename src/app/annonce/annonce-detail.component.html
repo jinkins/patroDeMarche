@@ -1,0 +1,13 @@
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{annonce.titre}} 
+      <span class="badge pull-right" *ngFor="let qui of annonce.audience">{{ qui }}</span>
+
+
+    </h3>
+  </div>
+  <div class="panel-body">
+    {{ annonce.description }}
+  </div>
+  <div class="panel-footer">{{ annonce.datePublication | date: 'dd/MM/yyyy' }}</div>
+</div>

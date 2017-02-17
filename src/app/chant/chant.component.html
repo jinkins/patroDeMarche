@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-md-5">
+    <app-chant-list (chantChanged)="chantSelected($event)"></app-chant-list>
+  </div>
+  <div class="col-md-7">
+    <app-chant-start [chantSelected]="chant"></app-chant-start>
+  </div>
+</div>
