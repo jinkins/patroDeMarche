@@ -31,8 +31,7 @@ export class AnnonceService {
         return -1;
       }
     }).reverse();
-    this.annoncesChanged.emit(annonces);
-    return this.annonces; 
+    return annonces; 
   }
 
   getAnnonces() {

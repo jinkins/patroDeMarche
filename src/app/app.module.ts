@@ -19,6 +19,9 @@ import { EventComponent } from './event/event.component';
 import { EventService } from './event/event.service';
 import { FutureAndSortedPipe } from './event/future-and-sorted.pipe';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
+import { AdminAnnonceComponent } from './admin/admin-annonce/admin-annonce.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminAnnonceEditComponent } from './admin/admin-annonce/admin-annonce-edit.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { EventDetailComponent } from './event/event-detail/event-detail.componen
     ChantStartComponent,
     EventComponent,
     FutureAndSortedPipe,
-    EventDetailComponent
+    EventDetailComponent,
+    AdminAnnonceComponent,
+    AdminComponent,
+    AdminAnnonceEditComponent
   ],
   imports: [
     BrowserModule,
