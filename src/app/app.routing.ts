@@ -8,15 +8,21 @@ import { ChantComponent } from './chant/chant.component';
 import { EventComponent } from './event/event.component';
 import { AdminComponent} from './admin/admin.component';
 import { ADMIN_ROUTES } from './admin/admin.routing';
+import { LoginComponent } from './login/login.component';
+import { PhotoComponent } from './photo/photo.component';
+import { AuthGuard } from './shared/auth.guard';
+import { AdminGuard } from './shared/admin.guard';
 
 const APP_ROUTES: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, pathMatch: 'full'},
   { path: 'Annonces', component: AnnonceComponent},
-  { path: 'Camp', component: CampComponent },
+  { path: 'Camp', component: CampComponent, canActivate: [AuthGuard] },
   { path: 'Equipes', component: EquipeComponent },
   { path: 'Chants', component: ChantComponent },
   { path: 'Calendrier', component: EventComponent}, 
-  { path: 'Admin', component: AdminComponent, children: ADMIN_ROUTES }
+  { path: 'Photos', component: PhotoComponent, canActivate: [AuthGuard]}, 
+  { path: 'Admin', component: AdminComponent, children: ADMIN_ROUTES, canActivate: [AdminGuard] }
 ];
 
 

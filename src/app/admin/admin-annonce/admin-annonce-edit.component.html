@@ -1,6 +1,63 @@
-<p *ngIf="modeEdit">
-  Hey, tu veux editer l'annonce : {{ id }}
-</p>
-<p *ngIf="!modeEdit">
-  Mode ajout
-</p>
+<form [formGroup]="annonceForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label for="titre">Titre</label>
+        <input type="text" id="titre" class="form-control" formControlName="titre">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" formControlName="description"></textarea>
+      </div>
+    </div>
+  </div>
+  <div formArrayName="audience">
+    <label>Cible de l'évènement</label>
+    <div class="form-group" *ngFor="let qui of annonceForm.controls['audience'].controls; let i = index;">
+      <div class="row">
+        <div class="col-xs-10">
+          <input type="text" formControlName="{{i}}" class="form-control">
+        </div>
+        <div class="col-xs-2">
+          <button type="button" class="btn btn-danger" (click)="onRemoveItem(i)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10">
+        <p>Cliquez sur le bouton <i class="fa fa-plus" aria-hidden="true"></i> pour ajouter une cible </p>
+      </div>
+      <div class="col-xs-2">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default" (click)="onAddItem()"> <i class="fa fa-plus" aria-hidden="true"></i> </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="row" *ngIf="resultat">
+    <div class="col-xs-12">
+      <div class="alert alert-success" role="alert">{{ resultat.status | translateStatus }}</div>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-xs-12 btn-group btn-group-justified">
+      <div class="btn-group" role="group">
+        <button class="btn btn-warning" type="reset" > <i class="fa fa-eraser" aria-hidden="true"></i> Effacer </button>
+      </div>
+      <div class="btn-group" role="group">
+        <button class="btn btn-danger" type="button" (click)="onRemoveAnnonce()" > <i class="fa fa-trash" aria-hidden="true"></i> Supprimer </button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="submit" class="btn btn-primary" [disabled]="!annonceForm.valid"> <i class="fa fa-floppy-o" aria-hidden="true"></i> Sauvegarder </button>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" formControlName="datePublication">
+  <input type="hidden" formControlName="idFirebase">
+</form>

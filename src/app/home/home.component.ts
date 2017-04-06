@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.as.getAnnonces().subscribe(
       (data: Annonce[]) => {
+        data = this.as.valuesToArray(data);
         let allAnnonces: Annonce[] = data as Annonce[];
         this.as.triParDate(allAnnonces);
         this.derniereAnnonce = allAnnonces[0];

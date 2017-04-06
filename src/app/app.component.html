@@ -9,18 +9,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" [routerLink]="['/']" >Patro</a>
+      <a class="navbar-brand" [routerLink]="['/']">Patro</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a [routerLink]="['/Annonces']">Annonces</a></li>
         <li><a [routerLink]="['/Camp']">Camp</a></li>
-        <li><a [routerLink]="['/Equipes']" >Equipes</a></li>
-        <li><a [routerLink]="['Chants']">Chants</a></li>
-        <li><a [routerLink]="['Calendrier']">Calendrier</a></li>
+        <li><a [routerLink]="['/Equipes']">Equipes</a></li>
+        <li><a [routerLink]="['/Chants']">Chants</a></li>
+        <li><a [routerLink]="['/Calendrier']">Calendrier</a></li>
+        <li><a [routerLink]="['/Photos']">Photos</a></li>
+        <li><a [routerLink]="['/Admin']" *ngIf="isAdmin()">Admin</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="!isLogged()"><a [routerLink]="['/login']"> Se connecter </a></li>
+        <li *ngIf="isLogged()"><a (click)="logout()"> Se déconnecter </a></li>
       </ul>
     </div>
+
     <!-- /.navbar-collapse -->
   </div>
   <!-- /.container-fluid -->

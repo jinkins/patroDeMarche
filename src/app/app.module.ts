@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 
@@ -22,6 +22,30 @@ import { EventDetailComponent } from './event/event-detail/event-detail.componen
 import { AdminAnnonceComponent } from './admin/admin-annonce/admin-annonce.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminAnnonceEditComponent } from './admin/admin-annonce/admin-annonce-edit.component';
+import { TranslateStatusPipe } from './admin/admin-annonce/translate-status.pipe';
+import { AdminCampComponent } from './admin/admin-camp/admin-camp.component';
+import { CampService } from './camp/camp.service';
+import { AdminEventComponent } from './admin/admin-event/admin-event.component';
+import { AdminEventEditComponent } from './admin/admin-event/admin-event-edit.component';
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AuthService } from './shared/auth.service';
+import { LoginComponent } from './login/login.component';
+import { PhotoComponent } from './photo/photo.component';
+import { AuthGuard } from './shared/auth.guard';
+import { AdminGuard } from './shared/admin.guard'; 
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBb8MuJRpBNijjeRBP7-LU8-ov34-FnE-Q",
+  authDomain: "patro-de-marche.firebaseapp.com",
+  databaseURL: "https://patro-de-marche.firebaseio.com",
+  storageBucket: "patro-de-marche.appspot.com",
+  messagingSenderId: "419705544637"
+};
+
+export const firebaseAuthConfig = {
+  method: AuthMethods.Password,
+  provider: AuthProviders.Password
+};
 
 @NgModule({
   declarations: [
@@ -39,15 +63,23 @@ import { AdminAnnonceEditComponent } from './admin/admin-annonce/admin-annonce-e
     EventDetailComponent,
     AdminAnnonceComponent,
     AdminComponent,
-    AdminAnnonceEditComponent
+    AdminAnnonceEditComponent,
+    TranslateStatusPipe,
+    AdminCampComponent,
+    AdminEventComponent,
+    AdminEventEditComponent,
+    LoginComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule, 
-    routing
+    HttpModule,
+    routing,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
   ],
-  providers: [AnnonceService, ChantService, EventService],
+  providers: [AnnonceService, ChantService, EventService, CampService, AuthService, AuthGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

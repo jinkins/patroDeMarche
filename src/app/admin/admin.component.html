@@ -1,8 +1,10 @@
 <div class="row">
-  <div class="list-group col-md-2">
+  <div class="list-group col-md-3">
     <a [routerLink]="['Annonces']" class="list-group-item">Annonces</a>
+    <a [routerLink]="['Camp']" class="list-group-item">Camp</a>
+    <a [routerLink]="['Events']" class="list-group-item">Calendrier</a>
   </div>
-  <div class="col-md-10">
+  <div class="col-md-9">
     <router-outlet></router-outlet>
   </div>
 </div>

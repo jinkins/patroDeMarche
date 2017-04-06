@@ -24,8 +24,6 @@ export class FutureAndSortedPipe implements PipeTransform {
     if(!futureEvents){
       return futureEvents; 
     }
-
-    console.log(futureEvents);
     
     return futureEvents.sort(
       (a:Event, b:Event) => {

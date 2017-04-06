@@ -1,0 +1,224 @@
+<h2>Camp</h2>
+<div *ngIf="camp">
+  <form [formGroup]="campForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Affichage</h3>
+      </div>
+      <div class="col-xs-12">
+        <label class="radio-inline"><input type="radio" name="show" formControlName="show" id="afficher" value="afficher" [checked]="camp.show" >Afficher</label>
+        <label class="radio-inline"><input type="radio" name="show" formControlName="show" id="masquer" value="masquer" [checked]="!camp.show" >Masquer</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Informations générales</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" class="form-control" formControlName="description"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <label>Quand</label>
+        </div>
+        <div class="col-md-2">
+          <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon1">Jour</span>
+            <select name="jour" id="jour" class="form-control" formControlName="jour">
+            <option [selected]="ceJour(1)">01</option>
+            <option [selected]="ceJour(2)">02</option>
+            <option [selected]="ceJour(3)">03</option>
+            <option [selected]="ceJour(4)">04</option>
+            <option [selected]="ceJour(5)">05</option>
+            <option [selected]="ceJour(6)">06</option>
+            <option [selected]="ceJour(7)">07</option>
+            <option [selected]="ceJour(8)">08</option>
+            <option [selected]="ceJour(9)">09</option>
+            <option [selected]="ceJour(10)">10</option>
+            <option [selected]="ceJour(11)">11</option>
+            <option [selected]="ceJour(12)">12</option>
+            <option [selected]="ceJour(13)">13</option>
+            <option [selected]="ceJour(14)">14</option>
+            <option [selected]="ceJour(15)">15</option>
+            <option [selected]="ceJour(16)">16</option>
+            <option [selected]="ceJour(17)">17</option>
+            <option [selected]="ceJour(18)">18</option>
+            <option [selected]="ceJour(19)">19</option>
+            <option [selected]="ceJour(20)">20</option>
+            <option [selected]="ceJour(21)">21</option>
+            <option [selected]="ceJour(22)">22</option>
+            <option [selected]="ceJour(23)">23</option>
+            <option [selected]="ceJour(24)">24</option>
+            <option [selected]="ceJour(25)">25</option>
+            <option [selected]="ceJour(26)">26</option>
+            <option [selected]="ceJour(27)">27</option>
+            <option [selected]="ceJour(28)">28</option>
+            <option [selected]="ceJour(29)">29</option>
+            <option [selected]="ceJour(30)">30</option>
+            <option [selected]="ceJour(31)">31</option>
+          </select>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon1">Mois</span>
+            <select name="mois" id="jour" class="form-control" formControlName="mois">
+            <option value="00" [selected]="ceMois(0)">Janvier</option>
+            <option value="01" [selected]="ceMois(1)">Février</option>
+            <option value="02" [selected]="ceMois(2)">Mars</option>
+            <option value="03" [selected]="ceMois(3)">Avril</option>
+            <option value="04" [selected]="ceMois(4)">Mai</option>
+            <option value="05" [selected]="ceMois(5)">Juin</option>
+            <option value="06" [selected]="ceMois(6)">Juillet</option>
+            <option value="07" [selected]="ceMois(7)">Août</option>
+            <option value="08" [selected]="ceMois(8)">Septembre</option>
+            <option value="09" [selected]="ceMois(9)">Octobre</option>
+            <option value="10" [selected]="ceMois(10)">Novembre</option>
+            <option value="11" [selected]="ceMois(11)">Décembre</option>
+          </select>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon1">Annee</span>
+            <input type="text" id="annee" class="form-control" formControlName="annee" />
+          </div>
+        </div>
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-2">
+          <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon1">Heure</span>
+            <input type="text" id="heure" class="form-control" formControlName="heure">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon1">Minute</span>
+            <input type="text" id="minute" class="form-control" formControlName="minute">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        &nbsp;
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <label for="lieu">Lieu</label>
+          <input type="text" id="lieu" class="form-control" formControlName="lieu">
+        </div>
+      </div>
+    </div>
+    <hr/>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Instructions</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-xs-12">
+        <div class="form-group">
+          <label for="iTous">Instructions communes</label>
+          <textarea id="iTous" class="form-control" formControlName="iTous"></textarea>
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <div class="form-group">
+          <label for="iBenjamines">Instruction Benjamines</label>
+          <textarea id="iBenjamines" class="form-control" formControlName="iBenjamines"></textarea>
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <div class="form-group">
+          <label for="iPEtincelles">Instruction Petites Etincelles</label>
+          <textarea id="iPEtincelles" class="form-control" formControlName="iPEtincelles"></textarea>
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <div class="form-group">
+          <label for="iGEtincelles">Instruction Grandes Etincelles</label>
+          <textarea id="iGEtincelles" class="form-control" formControlName="iGEtincelles"></textarea>
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <div class="form-group">
+          <label for="iAlpines">Instruction Alpines</label>
+          <textarea id="iAlpines" class="form-control" formControlName="iAlpines"></textarea>
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <div class="form-group">
+          <label for="iGrandes">Instruction Grandes</label>
+          <textarea id="iGrandes" class="form-control" formControlName="iGrandes"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Information financières</h3>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon">Complet</span>
+          <input type="text" class="form-control" aria-label="Montant" formControlName="complet">
+          <span class="input-group-addon">€</span>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon">Demi</span>
+          <input type="text" class="form-control" aria-label="Montant" formControlName="demi">
+          <span class="input-group-addon">€</span>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon">Soeur</span>
+          <input type="text" class="form-control" aria-label="Montant" formControlName="soeur">
+          <span class="input-group-addon">€</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        &nbsp;
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon">IBAN</span>
+          <input type="text" class="form-control" aria-label="IBAN" formControlName="iban">
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon">Communication</span>
+          <input type="text" class="form-control" aria-label="Communication" formControlName="communication">
+        </div>
+      </div>
+    </div>
+    <hr/>
+    <div class="row">
+      <div class="col-xs-12 btn-group btn-group-justified">
+        <div class="btn-group" role="group">
+          <button type="submit" class="btn btn-primary" [disabled]="!campForm.valid"> <i class="fa fa-floppy-o" aria-hidden="true" (click)="onSubmit()"></i> Sauvegarder </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div *ngIf="!camp">
+  Les données sont en cours de téléchargement.
+</div>

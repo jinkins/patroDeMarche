@@ -8,18 +8,46 @@ import { Annonce } from '../../annonce/annonce';
 })
 export class AdminAnnonceComponent implements OnInit {
 
-  private annonces: Annonce[]; 
+  private annonces: Annonce[];
 
   constructor(private sa: AnnonceService) { }
 
   ngOnInit() {
     this.sa.getAnnonces().subscribe(
       (data) => {
-        this.annonces = data as Annonce[];
-        console.log(this.annonces);
-        this.annonces = this.sa.triParDate(this.annonces);
+        this.annonces = this.sa.valuesToArray(data)
+
+        this.annonces = this.annonces as Annonce[];
+
+        if (this.annonces) {
+          if (this.annonces.length > 0) {
+            this.annonces = this.sa.triParDate(this.annonces);
+          }
+        }
+      }
+    );
+
+    this.sa.annonceAdded.subscribe(
+      (a: Annonce) => this.annonces.unshift(a)
+    );
+
+    this.sa.annonceDeleted.subscribe(
+      (id) => {
+        for (let i = 0; i < this.annonces.length; i++) {
+          this.annonces = this.annonces.filter(
+            (e) => {
+              return e.idFirebase != id
+            }
+          )
+        }
       }
     )
+
+
   }
+
+
+
+
 
 }

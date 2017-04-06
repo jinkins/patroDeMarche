@@ -16,6 +16,7 @@ export class AnnonceComponent implements OnInit {
   ngOnInit() {
     this.sa.getAnnonces().subscribe(
       (data) => {
+        data = this.sa.valuesToArray(data);
         this.annonces = data as Annonce[];
         console.log(this.annonces);
         this.annonces = this.sa.triParDate(this.annonces);

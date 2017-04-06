@@ -3,12 +3,14 @@ export class Event {
     public description: string;
     public quand: Date;
     public audience: string[];
+    public idFirebase: string;
 
-    constructor(t: string, d: string, q: Date, a: string[]) {
+    constructor(t: string, d: string, q: Date, a: string[], id:string) {
         this.titre = t;
         this.description = d;
         this.quand = q;
         this.audience = a;
+        this.idFirebase = id;
     }
 
     public getTime() {
