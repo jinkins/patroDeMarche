@@ -22,12 +22,12 @@ export class HomeComponent implements OnInit {
   presidente =  {
     nom: 'Beckers',
     prenom: 'Claire',
-    telephone: ''
+    telephone: '0471/34.23.63'
   };
   vp = {
     nom: 'Denis',
     prenom: 'Aline',
-    telephone: ''
+    telephone: '0483/42.00.30'
   };
 
   constructor(private as: AnnonceService, private es: EventService) { }

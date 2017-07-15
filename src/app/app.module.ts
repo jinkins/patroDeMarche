@@ -32,7 +32,9 @@ import { AuthService } from './shared/auth.service';
 import { LoginComponent } from './login/login.component';
 import { PhotoComponent } from './photo/photo.component';
 import { AuthGuard } from './shared/auth.guard';
-import { AdminGuard } from './shared/admin.guard'; 
+import { AdminGuard } from './shared/admin.guard';
+import { AdminChantComponent } from './admin/admin-chant/admin-chant.component';
+import { AdminChantEditComponent } from './admin/admin-chant/admin-chant-edit.component'; 
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBb8MuJRpBNijjeRBP7-LU8-ov34-FnE-Q",
@@ -69,7 +71,9 @@ export const firebaseAuthConfig = {
     AdminEventComponent,
     AdminEventEditComponent,
     LoginComponent,
-    PhotoComponent
+    PhotoComponent,
+    AdminChantComponent,
+    AdminChantEditComponent
   ],
   imports: [
     BrowserModule,

@@ -27,7 +27,4 @@ export class AdminEventComponent implements OnInit {
       }
     )
   }
-
-  
-
 }

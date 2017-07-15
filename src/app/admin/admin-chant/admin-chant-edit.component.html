@@ -1,0 +1,19 @@
+<form [formGroup]="chantForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label for="titre">Titre</label>
+        <input type="text" id="titre" class="form-control" formControlName="titre">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label for="titre">URL</label>
+        <input type="text" id="url" class="form-control" formControlName="url">
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!chantForm.valid"> <i class="fa fa-floppy-o" aria-hidden="true"></i> Sauvegarder </button>
+</form>

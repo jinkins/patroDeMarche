@@ -2,10 +2,10 @@
     <div class="row">
         <div class="col-md-9">
             <h1>Patro De Marche</h1>
-            <p class="lead">Bievenue sur le site officiel du patro de Marche-en-Famenne.</p>
+            <p class="lead">Bienvenue sur le site officiel du Patro de Marche-en-Famenne.</p>
         </div>
         <div class="col-md-3">
-            <img width="100%" src="http://www.patrocharleroi.be/wp-content/themes/theme_patro/library/images/logo_patro.png" />
+            <img width="100%" src="assets/patro.png" />
         </div>
     </div>
 </div>
@@ -13,7 +13,6 @@
     <!-- Indicators -->
     <ol class="carousel-indicators">
         <li data-target="#photosCouverture" data-slide-to="0" class="active"></li>
-        <li data-target="#photosCouverture" data-slide-to="1"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -21,13 +20,12 @@
         <div class="item active">
             <img src="assets/homepage1.jpg" width="100%" alt="...">
             <div class="carousel-caption">
-                Le patro de marche
+                Le Patro de marche
             </div>
         </div>
         <div class="item">
             <img src="http://patro.be/wp-content/uploads/2014/03/Slide_mars012-920x300.jpg" width="100%" alt="...">
-            <div class="carousel-caption">
-                
+            <div class="carousel-caption">     
             </div>
         </div>
     </div>
@@ -59,8 +57,9 @@
         <p><b>Heure de réunion : </b> {{heure}}</p>
         <p><b>Lieu : </b> {{lieu}}</p>
         <p><b>Prix de la cotisation : </b> {{ prix  }} €</p>
-        <p><b>Présidente: </b>{{ presidente.prenom }} {{ presidente.nom }} </p>
-        <p><b>Vice-Présidente: </b>{{ vp.prenom }} {{ vp.nom }} </p>
+        <p><b>Présidente: </b>{{ presidente.prenom }} {{ presidente.nom }} ({{ presidente.telephone }}) </p>
+        <p><b>Vice-Présidente: </b>{{ vp.prenom }} {{ vp.nom }} ({{ vp.telephone }}) </p>
+        <p><b>Adresse email du Patro : </b> patrodemarche@outlook.com </p>
     </div>
     <div class="col-md-7">
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2552.5248931448627!2d5.3424803!3d50.22609819999999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c04a826f7a69b7%3A0x7ee0039431fef23!2sBoulevard+du+Midi%2C+6900+Marche-en-Famenne!5e0!3m2!1sfr!2sbe!4v1412577631566" width="600" height="450" frameborder="0" style="border:0">

@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-5">
+    <a class="list-group-item list-group-item-info" [routerLink]="['new']"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Ajouter un chant</a>
+    <div class="list-group" *ngIf="chants">
+      <a class="list-group-item" *ngFor="let chant of chants" [routerLink]="[chant.idFirebase]">{{chant.titre}}</a>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <router-outlet></router-outlet>
+  </div>
+</div>

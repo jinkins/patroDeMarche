@@ -12,9 +12,7 @@ export class AdminGuard implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
 
         var userID: string = this.as.getUserID();
-        console.log(userID);
         if (userID) {
-            console.log(userID);
             if (userID === "9HrJ3AYiPaRsVIuxwr6OAgZKdTe2") {
                 return true;
             }

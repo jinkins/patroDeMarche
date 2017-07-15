@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     this.af.signUpUSer(this.loginForm.value["email"], this.loginForm.value["password"]);
     if(this.getError() === null){
-      console.log("Hey");
       this.r.navigate(['/']);
     }
 

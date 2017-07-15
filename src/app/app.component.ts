@@ -24,7 +24,6 @@ export class AppComponent {
   }
 
   isAdmin(){
-    console.log(this.auth.getUserID() );
     if(this.auth.getUserID() === "9HrJ3AYiPaRsVIuxwr6OAgZKdTe2"){
       return true; 
     }

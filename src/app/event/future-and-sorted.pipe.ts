@@ -15,7 +15,6 @@ export class FutureAndSortedPipe implements PipeTransform {
     let futureEvents: Event[] = new Array<Event>(); 
 
     for (let event of value){
-      console.log(event.quand.getTime());
       if(event.quand.getTime() >= Date.now()){
         futureEvents.push(event); 
       }

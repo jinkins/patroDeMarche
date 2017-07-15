@@ -18,10 +18,8 @@ export class EventService {
   public isInThePast(date: Date) {
     let now = new Date();
     if (date.getTime() >= now.getTime()) {
-      console.log("Future");
       return false;
     } else {
-      console.log("Passé");
       return true;
     }
   }
@@ -58,7 +56,7 @@ export class EventService {
 
   addEvent(e: Event){
     let event = new EventJSON(e);
-    return this.af.database.list("/events").push(event);
+    return this.af.database.list("/events/").push(event);
   }
 
   deleteEvent(e: Event){

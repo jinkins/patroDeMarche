@@ -22,7 +22,6 @@ export class ChantStartComponent implements OnInit {
   }
 
   ngOnChanges(){
-    console.log(this.chantSelected);
   }
 
 }
